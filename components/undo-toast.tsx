@@ -15,14 +15,22 @@ export function useUndoToast() {
           <span>{message}</span>
         </div>
       ),
-      description: "Tienes 30 segundos para deshacer esta acción",
+      description: "Tienes 4 segundos para deshacer esta acción",
       action: (
-        <Button size="sm" variant="outline" onClick={onUndo} className="gap-2 bg-transparent">
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={onUndo}
+          className="gap-2 bg-transparent"
+          data-action="undo"
+          aria-label="Deshacer"
+        >
           <Undo2 className="h-4 w-4" />
           Deshacer
         </Button>
       ),
-      duration: 30000,
+      // ⏱️ este se muestra 10s; si lo prefieres igual al global, quita esta línea
+      duration: 4000,
     })
   }
 

@@ -28,13 +28,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      {/* 👇 ojo: template string correcta con backticks */}
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* El ThemeProvider SIEMPRE envuelve a todo el árbol */}
         <ThemeProvider>
           <ThemeToggle />
           <HelpDialog />
           {children}
-          <Toaster />
+          {/* ⏱️ Duración global por defecto (5s). 
+              Si un toast especifica su propia duration, esa gana. */}
+          <Toaster duration={4000} />
         </ThemeProvider>
       </body>
     </html>
